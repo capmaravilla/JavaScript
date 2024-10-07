@@ -1,0 +1,1 @@
+console.log('Se ha producido un error:', error.message);

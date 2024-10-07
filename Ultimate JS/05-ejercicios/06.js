@@ -1,0 +1,21 @@
+let array = [2, 5, 7, 15, -5, -100, 55];
+
+function cuantosPositivos(arr) {
+  let positivos = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      positivos++;
+    }
+  }
+
+  //  let positivos = 0;
+  //  for (elemento of arr) {
+  //    if (elemento > 0) {
+  //      positivos++;
+  //    }
+  //  }
+  return positivos;
+}
+
+let resultado = cuantosPositivos(array);
+console.log(resultado);
