@@ -44,3 +44,37 @@ console.log(findNextSquare2(121));
 function findNextSquare3(sq) {
   return Math.sqrt(sq) % 1 ? -1 : Math.pow(Math.sqrt(sq) + 1, 2);
 }
+
+//* Find the odd int
+//? Given an array of integers, find the one that appears an odd number of times.
+//? There will always be only one integer that appears an odd number of times.
+// [7] -> 7, because it occurs 1 time (which is odd).
+// [0] -> 0, because it occurs 1 time (which is odd).
+// [1,1,2] -> 2, because it occurs 1 time (which is odd).
+// [0,1,0,1,0] -> 0, because it occurs 3 times (which is odd).
+// [1,2,2,3,3,3,4,3,3,3,2,2,1] -> 4, because it appears 1 time (which is odd).
+
+function findOdd(A) {
+  let rep = {};
+  A.forEach(u => {
+    rep[u] = (rep[u] || 0) + 1;
+  });
+
+  for (let num in rep) {
+    if (rep[num] % 2 !== 0) {
+      return parseInt(num);
+    }
+  }
+}
+
+console.log(findOdd([7]));
+
+// TODO operandor XOR para sumar de forma binaria y averiguar el numero impar
+
+function findOdd2(xs) {
+  let cache = xs.reduce((a, b) => a ^ b); //💀 se ve que es para encontrar un numero impar
+  return cache;
+}
+console.log(findOdd2([2, 3, 4, 5, 2, 5, 4, 3, 2]));
+
+//La función findOdd recibe un array xs y utiliza el método reduce para aplicar una operación XOR bit a bit a todos los elementos del array. El operador XOR (^) devuelve un 1 en cada bit donde los bits de los dos operandos son diferentes, y un 0 donde son iguales. Al hacer esto con todos los elementos del array, al final quedará el elemento que tiene una cantidad impar de repeticiones en el array original.
